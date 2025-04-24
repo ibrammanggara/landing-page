@@ -17,6 +17,6 @@ jobs:
     - name: login
       run: echo ${{ secrets.ACCESS_TOKEN }} | docker login -u ibramma --password-stdin
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag ibramma/landingpage:latest
+      run: docker build . --file Dockerfile --tag ibramma/landingpage:$GITHUB_RUN_NUMBER
     - name: push
-      run: docker push ibramma/landingpage:latest
+      run: docker push ibramma/landingpage:$GITHUB_RUN_NUMBER
