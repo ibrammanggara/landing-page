@@ -14,6 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: login
+      run: echo $ACCESS_TOKEN | docker login -u ibramma --password-stdin
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag ibramma/landingpage:latest
     - name: push
